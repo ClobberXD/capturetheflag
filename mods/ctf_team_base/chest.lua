@@ -67,17 +67,18 @@ for _, chest_color in pairs(colors) do
 			local chestinv = "nodemeta:" .. pos.x .. "," .. pos.y .. "," .. pos.z
 
 			formspec = formspec ..
-				"label[0,-0.2;" .. minetest.formspec_escape("Any team member can take from here") .. "]" ..
 				"list[" .. chestinv .. ";main;0,0.3;5,4;]" ..
-				"background[5,-0.2;3.15,4.7;ctf_team_base_pro_only.png;false]" ..
-				"list[" .. chestinv .. ";pro;5,0.3;3,4;]"
+				"background[5,-0.2;3.15,4.7;ctf_team_base_pro_only.png;false]"
 
 			if is_pro then
-				formspec = formspec .. "listring[current_name;pro]" ..
-					"label[5,-0.2;" .. minetest.formspec_escape("Pro players only (1k+ score, good KD)") .. "]"
+				formspec = formspec ..
+					"label[5.5,-0.2;" .. minetest.formspec_escape("Pro players only") .. "]" ..
+					"list[" .. chestinv .. ";pro;5,0.3;3,4;]" ..
+					"listring[current_name;pro]"
+					
 			else
-				formspec = formspec .. "listring[current_name;pro]" ..
-					"label[5,-0.2;" .. minetest.formspec_escape("You need 1k+ score and good KD") .. "]"
+				formspec = formspec .. "label[5.2,1;" ..
+					minetest.formspec_escape("You need 1000+ score\nand 1.5+ K/D ratio\nto access this section") .. "]"
 			end
 
 			formspec = formspec ..
