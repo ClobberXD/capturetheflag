@@ -58,7 +58,7 @@ for _, chest_color in pairs(colors) do
 				local msg = "You need at least 10 score to access the team chest.\n" ..
 					"Try killing an enemy player, or at least attempting to capture the flag.\n" ..
 					"Find resources in chests scattered around the map."
-				formspec = formspec .. "label[1,1;" .. minetest.formspec_escape(msg) .. "]"
+				formspec = formspec .. "label[0.2,1;" .. minetest.formspec_escape(msg) .. "]"
 				minetest.show_formspec(player:get_player_name(), "ctf_team_base:no_access",  formspec)
 				return
 			end
