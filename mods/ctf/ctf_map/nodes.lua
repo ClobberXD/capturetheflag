@@ -764,3 +764,12 @@ do
 		end
 	end
 end
+
+-- Add inventory_overlay for all indestructible nodes
+for name, ndef in pairs(minetest.registered_nodes) do
+	if name:find("ctf_map") and ndef.groups.immortal == 1 then
+		minetest.override_item(name, {
+			inventory_overlay = "ctf_map_ind_overlay.png"
+		})
+	end
+end
